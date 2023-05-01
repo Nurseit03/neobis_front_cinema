@@ -6,6 +6,8 @@ const API_URL_SEARCH="https://kinopoiskapiunofficial.tech/api/v2.1/films/search-
 const form=document.querySelector(".header__search__form");
 const search=document.querySelector(".header__search");
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 form.addEventListener("submit",(event) => {
     event.preventDefault();
 
@@ -14,8 +16,8 @@ form.addEventListener("submit",(event) => {
 
     if(search.value){
         // Очищаем предыдущие фильмы
-        moviesEl.innerHTML = "";
         const moviesEl = document.querySelector(".movies");
+        moviesEl.innerHTML = "";
 
         getMovies(apiSearchUrl);
         search.value="";
@@ -26,6 +28,7 @@ form.addEventListener("submit",(event) => {
 
 
 getMovies(API_URL_POPULAR_MOVIES);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 async function getMovies(url){
     const response = await fetch(url, {
@@ -37,6 +40,7 @@ async function getMovies(url){
     const responseData = await response.json();
     showMovies(responseData);
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function getByRate(vote){
     if(vote>=7){
@@ -47,6 +51,7 @@ function getByRate(vote){
         return "red";
     }
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function showMovies(data){
     const moviesEl = document.querySelector(".movies");
@@ -72,6 +77,7 @@ function showMovies(data){
         moviesEl.appendChild(movieEl);
     })
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function favorite(filmId){
     console.log("Film id: "+filmId);
@@ -79,5 +85,9 @@ function favorite(filmId){
     
 }
     
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+function showFavorites(){
+    console.log("FF");
+}
 
