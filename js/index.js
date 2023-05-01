@@ -5,6 +5,8 @@ const API_URL_SEARCH="https://kinopoiskapiunofficial.tech/api/v2.1/films/search-
 
 const form=document.querySelector(".header__search__form");
 const search=document.querySelector(".header__search");
+const moviesEl = document.querySelector(".movies");
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -71,7 +73,7 @@ function showMovies(data){
                         <a><div class="movie__title">${movie.nameRu}<div class="movie__year">(${movie.year})</div></div></a>
                         <a><div class="movie__category">${movie.genres.map(genre => ` ${genre.genre}`)}</div></a>
                         <a><div class="movie__average movie__average--${getByRate(movie.rating)}">${movie.rating}</div></a>
-                        <a><button class="movie__favorite" onclick="favorite(${filmId})">❤</button></a>
+                        <a><button class="movie__favorite" onclick="() => favorite(${filmId})">❤</button></a>
                     </div>
         `;
         moviesEl.appendChild(movieEl);
@@ -79,15 +81,5 @@ function showMovies(data){
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function favorite(filmId){
-    console.log("Film id: "+filmId);
-    
-    
-}
-    
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function showFavorites(){
-    console.log("FF");
-}
 
