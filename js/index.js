@@ -5,6 +5,8 @@ const API_URL_SEARCH="https://kinopoiskapiunofficial.tech/api/v2.1/films/search-
 
 const form=document.querySelector(".header__search__form");
 const search=document.querySelector(".header__search");
+const moviesEl = document.querySelector(".movies");
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
