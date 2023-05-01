@@ -71,23 +71,12 @@ function showMovies(data){
                         <a><div class="movie__title">${movie.nameRu}<div class="movie__year">(${movie.year})</div></div></a>
                         <a><div class="movie__category">${movie.genres.map(genre => ` ${genre.genre}`)}</div></a>
                         <a><div class="movie__average movie__average--${getByRate(movie.rating)}">${movie.rating}</div></a>
-                        <a><button class="movie__favorite" onclick="favorite(${filmId})">❤</button></a>
+                        <a><button class="movie__favorite" onclick="() => favorite(${filmId})">❤</button></a>
                     </div>
         `;
         moviesEl.appendChild(movieEl);
     })
 }
+/* <a><button class="movie__favorite" onclick="favorite(${filmId})">❤</button></a> */
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function favorite(filmId){
-    console.log("Film id: "+filmId);
-    
-    
-}
-    
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function showFavorites(){
-    console.log("FF");
-}
-
