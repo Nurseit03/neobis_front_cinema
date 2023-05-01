@@ -5,7 +5,6 @@ const API_URL_SEARCH="https://kinopoiskapiunofficial.tech/api/v2.1/films/search-
 
 const form=document.querySelector(".header__search__form");
 const search=document.querySelector(".header__search");
-const moviesEl = document.querySelector(".movies");
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,7 +60,6 @@ function showMovies(data){
     const firstTenFilms = data.films.slice(0, 10); // Получаем только первые десять фильмов
 
     firstTenFilms.forEach(movie => {
-        const filmId = movie.filmId;
         const movieEl = document.createElement("div");
         movieEl.classList.add("movie");
         movieEl.innerHTML=`
@@ -71,12 +69,15 @@ function showMovies(data){
                     </div>
                     <div class="movie__info">
                         <a><div class="movie__title">${movie.nameRu}<div class="movie__year">(${movie.year})</div></div></a>
-                        <a><div class="movie__category">${movie.genres.map(genre => ` ${genre.genre}`)}</div></a>
+                        <a><div class="movie__category">${movie.genres.map(genre => `${genre.genre}`)}</div></a>
                         <a><div class="movie__average movie__average--${getByRate(movie.rating)}">${movie.rating}</div></a>
-                        <a><button class="movie__favorite" onclick="() => favorite(${filmId})">❤</button></a>
-                    </div>
+                        <button type='button' class="movie__favorite" onclick="addFavorite(
+                            ${movie.filmId},'${movie.nameRu}','${movie.year}','${movie.genres.map(genre => `${genre.genre}`)}','${movie.rating}','${movie.posterUrlPreview}'
+                            )">❤️</button>
+                        </div>
         `;
         moviesEl.appendChild(movieEl);
+        
     })
 }
 /* <a><button class="movie__favorite" onclick="favorite(${filmId})">❤</button></a> */
