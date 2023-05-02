@@ -112,6 +112,9 @@ body{
 .movie__category{
     font-size: 14px;
     color: #ffd80e;
+         white-space: nowrap; /* Предотвращает перенос слов на новую строку */
+        overflow: hidden; /* Скрытие любого текста, который выходит за пределы блока */
+        text-overflow: ellipsis; /* Добавляет многоточие в конце блока, если текст выходит за его пределы */
 }
 
 .movie__average{
